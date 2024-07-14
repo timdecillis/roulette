@@ -9,9 +9,13 @@ function App() {
     <div className="App">
       <h1>Hello, Roulettech!</h1>
       <div>
-        <button>Push Me!</button>
+        <button onClick={() => setFirstPushed(!firstPushed)}>
+          {firstPushed ? "unpush me" : "push me"}
+        </button>
       </div>
-      <button>Push Me!</button>
+      <button onClick={() => setSecondPushed(!secondPushed)}>
+        {secondPushed ? "unpush me" : "push me"}
+      </button>
     </div>
   );
 }
