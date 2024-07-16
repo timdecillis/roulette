@@ -1,24 +1,35 @@
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  const [firstPushed, setFirstPushed] = useState(false);
-  const [secondPushed, setSecondPushed] = useState(false);
+  const [first, setFirst] = useState(false);
+  const [second, setSecond] = useState(false);
 
-  const negative = "push me";
-  const positive = "unpush me";
+  const handleButton1 = () => {
+    axios.get("http://localhost:8000/button1/").then((response: any) => {
+      const { data } = response;
+      const { message } = data;
+      setFirst(message);
+    });
+  };
+  const handleButton2 = () => {
+    axios.get("http://localhost:8000/button2/").then((response: any) => {
+      const { data } = response;
+      const { message } = data;
+      setSecond(message);
+    });
+  };
+
   return (
     <div className="App">
       <h1>Hello, Roulettech!</h1>
       <div>
-        <button onClick={() => setFirstPushed(!firstPushed)}>
-          {firstPushed ? positive : negative}
-        </button>
+        <button onClick={handleButton1}>Button 1</button>
+        <div>{first}</div>
       </div>
-      <button onClick={() => setSecondPushed(!secondPushed)}>
-        {secondPushed ? positive : negative}
-      </button>
+      <button onClick={handleButton2}>Button 2</button>
+      <div>{second}</div>
     </div>
   );
 }
