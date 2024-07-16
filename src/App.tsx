@@ -9,8 +9,7 @@ function App() {
   const handleButton1 = () => {
     axios.get("http://localhost:8000/button1/").then((response: any) => {
       const { data } = response;
-      const { message } = data;
-      setFirst(message);
+      setFirst(data);
     });
   };
   const handleButton2 = () => {
