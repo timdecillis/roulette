@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
   const [first, setFirst] = useState(false);
-  const [second, setSecond] = useState(false);
+  const [second, setSecond] = useState('black');
 
   const handleButton1 = () => {
     axios.get("http://localhost:8000/button1/").then((response: any) => {
@@ -24,11 +24,11 @@ function App() {
     <div className="App">
       <h1>Hello, Roulettech!</h1>
       <div>
+        <h3>Click below to add a random number here! *{first}*</h3>
         <button onClick={handleButton1}>Button 1</button>
-        <div>{first}</div>
       </div>
+      <h3 style={{color: second}} >Click here to change this text color</h3>
       <button onClick={handleButton2}>Button 2</button>
-      <div>{second}</div>
     </div>
   );
 }
