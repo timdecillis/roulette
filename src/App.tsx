@@ -15,8 +15,7 @@ function App() {
   const handleButton2 = () => {
     axios.get("http://localhost:8000/button2/").then((response: any) => {
       const { data } = response;
-      const { message } = data;
-      setSecond(message);
+      setSecond(data);
     });
   };
 
@@ -27,7 +26,7 @@ function App() {
         <h3>Click below to add a random number here! *{first}*</h3>
         <button onClick={handleButton1}>Button 1</button>
       </div>
-      <h3 style={{color: second}} >Click here to change this text color</h3>
+      <h3 style={{color: second}} >Click below to change this text color</h3>
       <button onClick={handleButton2}>Button 2</button>
     </div>
   );

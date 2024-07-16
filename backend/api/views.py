@@ -12,5 +12,6 @@ class Button1View(APIView):
 
 class Button2View(APIView):
     def get(self, request):
-        data = {"message": "Hello from button 2"}
+        colors = ['blue', 'red', 'yellow', 'green', 'purple', 'orange']
+        data = random.choice(colors)
         return Response(data, status=status.HTTP_200_OK)
