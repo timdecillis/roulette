@@ -2,13 +2,13 @@ import axios from "axios";
 
 const baseURL = "http://localhost:8000";
 
-const handleButton1 = () => {
+export function handleNumberRequest () {
   axios.get(baseURL + "/button1").then((response: any) => {
     const { data } = response;
     return data;
   });
 };
-const handleButton2 = (color: string) => {
+export function handleColorRequest (color: string) {
   axios
     .post(baseURL + "/button1", { currentColor: color })
     .then((response: any) => {
@@ -16,5 +16,3 @@ const handleButton2 = (color: string) => {
       return data;
     });
 };
-
-module.exports = { handleButton1, handleButton2 };
