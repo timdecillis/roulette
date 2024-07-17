@@ -11,7 +11,10 @@ class Button1View(APIView):
         return Response(number, status=status.HTTP_200_OK)
 
 class Button2View(APIView):
-    def get(self, request):
+    def post(self, request):
         colors = ['blue', 'red', 'yellow', 'green', 'purple', 'orange']
-        data = random.choice(colors)
+        currentColor = request["currentColor"]
+        nextColor = random.choice(colors)
+        while(nextColor == currentColor):
+            nextColor == random.choice(colors)
         return Response(data, status=status.HTTP_200_OK)
