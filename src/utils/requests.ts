@@ -2,17 +2,15 @@ import axios from "axios";
 
 const baseURL = "http://localhost:8000";
 
-export function handleNumberRequest () {
-  axios.get(baseURL + "/button1").then((response: any) => {
-    const { data } = response;
-    return data;
+export async function handleNumberRequest() {
+  const response = await axios.get(baseURL + "/button1/");
+  const { data } = response;
+  return data;
+}
+export async function handleColorRequest(color: string) {
+  const response = await axios.post(baseURL + "/button2/", {
+    currentColor: color,
   });
-};
-export function handleColorRequest (color: string) {
-  axios
-    .post(baseURL + "/button1", { currentColor: color })
-    .then((response: any) => {
-      const { data } = response;
-      return data;
-    });
-};
+  const { data } = response;
+  return data;
+}

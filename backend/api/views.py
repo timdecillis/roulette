@@ -15,8 +15,6 @@ class Button2View(APIView):
         colors = ['blue', 'red', 'yellow', 'green', 'purple', 'orange']
         currentColor = request.data["currentColor"]
         nextColor = random.choice(colors)
-        print('current:', currentColor, 'next:', nextColor)
         while(nextColor == currentColor):
-            print('trying again!')
             nextColor = random.choice(colors)
         return Response(nextColor, status=status.HTTP_200_OK)
