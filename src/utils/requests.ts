@@ -4,7 +4,7 @@ const baseURL = "http://localhost:8000";
 
 export async function handleNumberRequest() {
   try {
-    const response = await axios.get(baseURL + "/button1/");
+    const response = await axios.get(baseURL + "/number/");
     const { data } = response;
     return data;
   } catch (error) {
@@ -15,7 +15,7 @@ export async function handleNumberRequest() {
 }
 export async function handleColorRequest(color: string) {
   try {
-    const response = await axios.post(baseURL + "/button2/", {
+    const response = await axios.post(baseURL + "/color/", {
       currentColor: color,
     });
     const { data } = response;

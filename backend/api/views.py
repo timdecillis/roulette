@@ -1,11 +1,11 @@
-from django.shortcuts import render
 import random
 
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-class Button1View(APIView):
+class NumberView(APIView):
     def get(self, request):
         try:
             number = random.randint(0, 100)
@@ -13,7 +13,7 @@ class Button1View(APIView):
         except Exception as e:
             return Response(str(e), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-class Button2View(APIView):
+class ColorView(APIView):
     def post(self, request):
         try:
             colors = ['blue', 'red', 'yellow', 'green', 'purple', 'orange']
