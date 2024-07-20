@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8000";
+const baseURL = "http://44.202.167.54:8000";
 
 export async function handleNumberRequest() {
+
   try {
     const response = await axios.get(baseURL + "/number/");
     const { data } = response;
